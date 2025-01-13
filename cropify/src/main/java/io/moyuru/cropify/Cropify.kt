@@ -84,6 +84,7 @@ fun Cropify(
           onDragStart = { touchRegion = detectTouchRegion(it, state.frameRect, tolerance) },
           onDragEnd = { touchRegion = null }
         ) { change, dragAmount ->
+          println("POINTER_ID: ${change.id}")
           touchRegion?.let {
             when (it) {
               is TouchRegion.Vertex -> state.scaleFrameRect(it, frameFixedAspectRatio, dragAmount, tolerance * 2)
